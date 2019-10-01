@@ -1,37 +1,53 @@
 import React from "react";
 
-class ListForm extends React.Component {
+class TodoForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      task: ""
+      todo: ""
     };
   }
 
   handleChanges = e => {
-    this.setState({
-      [e.target.task]: e.target.value
-    });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  submitItem = e => {
+  submitTodo = e => {
     e.preventDefault();
-    this.props.addItem(this.state.item);
+    // take the todo off of state
+    // send that todo to a function defined on App.js
+    this.props.addItem(this.state.todo);
+    // reset the state
+    this.setState({ item: "" });
   };
+
+  // clearSubmit = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     completed: this.props.clearCompleted.filter(item => !item.completed)
+  //   });
+  // };
+
+  // clearSubmit = e => {
+  //   e.preventDefault();
+  //   this.props.handleClearCompleted(this.state.todo);
+  //   this.setState({ item: "" });
+  // };
 
   render() {
     return (
-      <form onSubmit={this.submitItem}>
+      <form onSubmit={this.submitTodo}>
         <input
           type="text"
-          value={this.item}
-          task="item"
-          onChange={this.handleChanges}
+          value={this.state.task}
+          name="todo"
+          placeholder="add todo"
+          onChange={(this, this.handleChanges)}
         />
-        <button>Add</button>
+        <button type="submit">Add</button>
       </form>
     );
   }
 }
 
-export default ListForm;
+export default TodoForm;
