@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
 
 const Todos = [
   {
@@ -74,7 +75,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <h2>Welcome to your Todo App!</h2>
         <div>
           <h1>Todo List</h1>

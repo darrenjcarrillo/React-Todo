@@ -1,4 +1,5 @@
 import React from "react";
+import "./Todo.css";
 
 const Todo = props => {
   return (
@@ -6,7 +7,7 @@ const Todo = props => {
       className={`item${props.todo.completed ? " completed" : ""}`}
       onClick={() => props.toggleItem(props.todo.id)}
     >
-      <p>{props.todo.task}</p>
+      <p className="ptag">{props.todo.task}</p>
     </div>
   );
 };

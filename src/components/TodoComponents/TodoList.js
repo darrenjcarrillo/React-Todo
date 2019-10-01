@@ -4,16 +4,23 @@
 import React from "react";
 
 import Todo from "./Todo";
+import "./Todo.css";
 
 const TodoList = props => {
   return (
-    <div>
+    <div className="todo-list">
       {props.todos.map(todo => (
         <Todo key={todo.id} todo={todo} toggleItem={props.toggleItem} />
       ))}
-      <button type="button" onClick={props.clearCompleted}>
-        Clear
-      </button>
+      <div className="clear-div">
+        <button
+          className="clear-button"
+          type="button"
+          onClick={props.clearCompleted}
+        >
+          Clear
+        </button>
+      </div>
     </div>
   );
 };
